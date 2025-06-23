@@ -27,33 +27,33 @@ fn main() {
 }
 
 #[test]
-fn empty_list() {
+fn empty·list() {
     let input = vec![];
-    let expected_output = None;
-    let actual_output = median(input);
-    assert_eq!(actual_output, expected_output);
+    let expected·output = None;
+    let actual·output = median(input);
+    assert_eq!(actual·output, expected·output);
 }
 
 #[test]
-fn sorted_list() {
+fn sorted·list() {
     let input = vec![1.0, 4.0, 5.0];
-    let expected_output = Some(4.0);
-    let actual_output = median(input);
-    assert_eq!(actual_output, expected_output);
+    let expected·output = Some(4.0);
+    let actual·output = median(input);
+    assert_eq!(actual·output, expected·output);
 }
 
 #[test]
-fn even_length() {
+fn even·length() {
     let input = vec![1.0, 3.0, 5.0, 6.0];
-    let expected_output = Some(4.0);
-    let actual_output = median(input);
-    assert_eq!(actual_output, expected_output);
+    let expected·output = Some(4.0);
+    let actual·output = median(input);
+    assert_eq!(actual·output, expected·output);
 }
 
 #[test]
-fn unsorted_list() {
+fn unsorted·list() {
     let input = vec![1.0, 5.0, 2.0];
-    let expected_output = Some(2.0);
-    let actual_output = median(input);
-    assert_eq!(actual_output, expected_output);
+    let expected·output = Some(2.0);
+    let actual·output = median(input);
+    assert_eq!(actual·output, expected·output);
 }
