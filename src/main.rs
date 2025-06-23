@@ -1,19 +1,22 @@
-fn median(mut a: Vec<f32>) -> Option<f32> {
-    if a.is_empty() {
-        return None;
-    }
+fn median(mut values: Vec<f32>) -> Option<f32> {
+    let length = values.len();
 
-    a.sort_by(|x, y| x.partial_cmp(y).unwrap());
-    let len = a.len();
+    // A half - represents the midpoint index, though a nomenclature aligned with "entirety" bellow
+    let moiety = length / 2;
+    match length {
+        0 => None,
+        entirety => {
+            values.sort_by(|former, latter| former.partial_cmp(latter).unwrap());
 
-    if len % 2 == 0 {
-        // Even length: average of the two middle elements
-        let mid_right = len / 2;
-        let mid_left = mid_right - 1;
-        Some((a[mid_left] + a[mid_right]) / 2.0)
-    } else {
-        // Odd length: middle element
-        Some(a[len / 2])
+            // mes[i](o)- for "middle" and -axe for "value" so literally "the middle value".
+            let mesiaxe = match entirety % 2 {
+                0 => (values[moiety - 1] + values[moiety]) / 2.0,
+                #[allow(unused_variables)] // rather than inconsiderately bend to the underscore convention
+                otherwise => values[moiety],
+            };
+
+            Some(mesiaxe)
+        }
     }
 }
 
@@ -22,7 +25,6 @@ fn main() {
 
     println!("median([1,2,5]) = {:?}", answer);
 }
-
 
 #[test]
 fn empty_list() {
