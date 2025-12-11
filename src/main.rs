@@ -1,6 +1,15 @@
-fn unique(a: Vec<i32>) -> Vec<i32> {
-    todo!()
+use std::collections::HashSet;
+
+fn unique<Interface>(sequence: Interface) -> Vec<i32>
+where
+    Interface: IntoIterator<Item = i32>
+{
+    sequence.into_iter()
+        .collect::<HashSet<_>>()
+        .into_iter()
+        .collect()
 }
+
 
 // advanced 1: use generic types
 // fn unique(a: Vec<T>) -> Vec<T> {
